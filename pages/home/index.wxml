@@ -11,7 +11,7 @@
     </view>
 
     <view class="operation">
-        <view class="circle-btn">
+        <view class="circle-btn" bindtap="goComment">
             <icon class="iconfont icon-comment" />
         </view>
         <view class="circle-btn" bindtap="clickNav">

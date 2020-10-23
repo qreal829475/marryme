@@ -2,6 +2,9 @@
 <view class="container">
     <view class="comment">
         <image class="user-img" src="../../asset/img/1.jpg"></image>
+        <view class="comment-info">
+            <view class="comment-user"><text class="h4">tangdajing</text><text class="h6">2020-10-26 12:12</text></view>
+        </view>
     </view>
     <view class="comment">
         <image class="user-img" src="../../asset/img/1.jpg"></image>

@@ -96,4 +96,11 @@ Page({
         //     }
         // });
     },
+
+    // 跳转评论
+    goComment: function () {
+        wx.navigateTo({
+            url: '../comment/index'
+        });
+    },
 })
