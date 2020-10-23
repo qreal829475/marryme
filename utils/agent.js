@@ -44,7 +44,7 @@ const agentObj = {
     });
   },
   //发送求情
-  sendRequest(url, type, params = {}, loading = true , contentType) {
+  sendRequest(url, type, params = {}, loading = true, contentType) {
     loading && wx.showLoading();
     let token = '';
     if (params.token) {
@@ -89,41 +89,50 @@ const agentObj = {
         duration: 3000
       })
       return undefined;
-    } else {
+    } else if (response.statusCode == 200) {
       const res = response.data;
-      const oriUrl = par.oriUrl;
-      const params = par.params;
-      const reqType = par.reqType;
-      const options = par.options;
-      if (!res || res.code === undefined) {
-        if (!options.noToast) {
-          wx.showToast({
-            icon: 'none',
-            title: '网络错误',
-            duration: 3000
-          })
-        }
-        return {}
-      } else {
-        if (res.code === 0) {
-          return res;
-        } else if (res.code === -1) {
-          return this.refreshToken(oriUrl, params, reqType, options)
-        } else {
-          if (!options.noToast) {
-            if (res.msg) {
-              wx.showToast({
-                title: res.msg,
-                icon: 'none',
-                duration: 3000
-              })
-            } else {
-              console.log(res.result);
-            }
-          }
-          return {}
-        }
-      }
+      // const oriUrl = par.oriUrl;
+      // const params = par.params;
+      // const reqType = par.reqType;
+      // const options = par.options;
+      // if (!res || res.code === undefined) {
+      //   if (!options.noToast) {
+      //     wx.showToast({
+      //       icon: 'none',
+      //       title: '网络错误',
+      //       duration: 3000
+      //     })
+      //   }
+      //   return {}
+      // } else {
+      // if (res.code === 0) {
+        return res;
+      // }
+      // else if (res.code === -1) {
+      //   return this.refreshToken(oriUrl, params, reqType, options)
+      // } 
+      // else {
+      //   if (!options.noToast) {
+      //     if (res.msg) {
+      //       wx.showToast({
+      //         title: res.msg,
+      //         icon: 'none',
+      //         duration: 3000
+      //       })
+      //     } else {
+      //       console.log(res.result);
+      //     }
+      //   }
+      //   return {}
+      // }
+      // }
+    } else {
+      wx.showToast({
+        icon: 'none',
+        title: '网络错误',
+        duration: 3000
+      })
+      return {}
     }
 
   },

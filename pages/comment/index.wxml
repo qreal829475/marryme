@@ -1,12 +1,34 @@
 <!--pages/comment/index.wxml-->
 <view class="container">
+    <block wx:if="{{commentCount == -1}}">
+        <!-- 正在加载中 -->
+    </block>
+    <block wx:elif="{{commentCount == 0}}">
+        <!-- <image class='none-goods' src='../../assets/img/goods.png'></image> -->
+        <view class='h6 none-tip'>暂时还没有评论哦~</view>
+    </block>
+    <view wx:elif="{{commentCount > 0}}">
+        <block wx:for="{{commentList}}" wx:key='{{item.goodsId}}-act'>
+            <template is='commentItem' data='{{...item}}' />
+        </block>
+    </view>
+
+    <block wx:if="{{hasAllListData == true && commentCount != 0}}">
+        <view class='h5 word-4 end-line'>
+            <text class='line-text'>没有更多评论啦</text>
+        </view>
+    </block>
+</view>
+
+<template name="commentItem">
     <view class="comment">
-        <image class="user-img" src="../../asset/img/1.jpg"></image>
+        <image class="user-img" src="{{item.avatarUrl}}"></image>
         <view class="comment-info">
-            <view class="comment-user"><text class="h4">tangdajing</text><text class="h6">2020-10-26 12:12</text></view>
+            <view class="comment-user">
+                <view class="h5 word-1">{{item.nickname}}</view>
+                <view class="h6 word-3">{{item.commentTime}}</view>
+            </view>
+            <view class="comment-content h4">{{item.content}}</view>
         </view>
     </view>
-    <view class="comment">
-        <image class="user-img" src="../../asset/img/1.jpg"></image>
-    </view>
-</view>
+</template>
