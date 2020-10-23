@@ -1,0 +1,21 @@
+<!--pages/home/index.wxml-->
+<view class="container">
+    <view class="step1">
+        <text class="motto">Hello World!</text>
+    </view>
+    <view class="step2">
+        <text class="motto">我们结婚啦！</text>
+    </view>
+    <view class="content">
+        <image class="img1" src="../../asset/img/1.jpg"></image>
+    </view>
+
+    <view class="operation">
+        <view class="circle-btn">
+            <icon class="iconfont icon-comment" />
+        </view>
+        <view class="circle-btn" bindtap="clickNav">
+            <icon class="iconfont icon-navigation" />
+        </view>
+    </view>
+</view>

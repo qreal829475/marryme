@@ -1,0 +1,262 @@
+/**app.wxss**/
+
+/* weUI样式 */
+/* @import './style/weui.wxss'; */
+
+/* 字体图标相关 */
+@import './iconfont.wxss';
+
+/* 动画相关 */
+
+/* @import './animate.wxss'; */
+
+/* 图片底部空白消除 */
+
+img,
+image {
+    vertical-align: middle;
+}
+
+/* 基础字号定义 */
+
+.h1 {
+    font-size: 40rpx;
+}
+
+.h2 {
+    font-size: 36rpx;
+}
+
+.h3 {
+    font-size: 32rpx;
+}
+
+.h4 {
+    font-size: 30rpx;
+}
+
+.h5 {
+    font-size: 26rpx;
+}
+
+.h6 {
+    font-size: 24rpx;
+}
+
+.bd {
+    font-weight: 600;
+}
+
+/* 基础颜色定义 */
+
+.theme {
+    /* 主色 */
+    color: #f44e4b;
+}
+
+.theme-bgc {
+    /* 主色 */
+    background-color: #f44e4b;
+}
+
+.theme-2 {
+    /* 辅色1 */
+    color: #f9be0c;
+}
+
+.theme-2-bgc {
+    /* 辅色1 */
+    background-color: #f9be0c;
+}
+
+.theme-3 {
+    color: #fff2c7;
+}
+
+.theme-3-bgc {
+    background-color: #fff2c7;
+}
+
+.word-1 {
+    color: #222;
+}
+
+.word-2 {
+    color: #999;
+}
+
+.word-3 {
+    color: #aaa;
+}
+
+.word-4 {
+    color: #ccc;
+}
+
+.word-5 {
+    color: #555;
+}
+
+.line {
+    background-color: #eee;
+    width: 100%;
+    height: 1rpx;
+}
+
+.bg {
+    background-color: #f7f7f7;
+}
+
+/* 定义基础按钮 */
+
+.btn-huge {
+    width: 750rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 36rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #f44e4b;
+    border: 1rpx solid #f44e4b;
+}
+
+.btn-big {
+    width: 690rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 36rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #f44e4b;
+    border: 1rpx solid #f44e4b;
+    border-radius: 44rpx;
+}
+
+.btn-medium {
+    width: 510rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 36rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #f44e4b;
+    /* border: 1rpx solid #f44e4b; */
+    border-radius: 44rpx;
+}
+
+.btn {
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #f44e4b;
+    border: 1rpx solid #f44e4b;
+    border-radius: 30rpx;
+}
+
+.btn-small {
+    width: 130rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #f44e4b;
+    border: 1rpx solid #f44e4b;
+    border-radius: 40rpx;
+}
+
+.btn-wait {
+    color: #f44e4b;
+    background-color: #faa9a8;
+    border: 1rpx solid #faa9a8;
+}
+
+.btn-white {
+    color: #f44e4b;
+    background-color: #fff;
+    border: 1rpx solid #f44e4b;
+}
+
+.btn-cancel {
+    color: #999;
+    background-color: #fff;
+    border: 1rpx solid #ccc;
+}
+
+.btn-stop {
+    color: #aaa;
+    background-color: #ccc;
+    border: 1rpx solid #ccc;
+}
+
+.btn-hover {
+    -webkit-filter: grayscale(0.3);
+    filter: grayscale(0.3);
+}
+
+/* 文本溢出省略 */
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.ellipsis-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
+
+.ellipsis-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+}
+
+.text-break {
+    word-wrap: break-word;
+}
+
+/* 空白行占位，默认10rpx */
+
+.whiteSpace {
+    height: 20rpx;
+}
+
+/* 页面两侧留白，默认20rpx */
+
+.wingBlank {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+page {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    min-height: 100%;
+    background-color: #f7f7f7;
+    font-size: 32rpx;
+    color: #333;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}

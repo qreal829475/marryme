@@ -1,0 +1,9 @@
+<!--pages/comment/index.wxml-->
+<view class="container">
+    <view class="comment">
+        <image class="user-img" src="../../asset/img/1.jpg"></image>
+    </view>
+    <view class="comment">
+        <image class="user-img" src="../../asset/img/1.jpg"></image>
+    </view>
+</view>
