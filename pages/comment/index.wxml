@@ -18,6 +18,26 @@
             <text class='line-text'>没有更多评论啦</text>
         </view>
     </block>
+
+    <view class="operation">
+        <view class="circle-btn" bindtap="showWrite">
+            <icon class="iconfont icon-fabiao" />
+        </view>
+    </view>
+
+    <view class="comment-func {{showWrite ? 'show': ''}}">
+        <view class="bg"></view>
+        <view class="write">
+            <view class="close-write"  bindtap="closeWrite" >
+                <icon class="iconfont icon-Close" />
+            </view>
+            <form bindsubmit="submit">
+                <textarea class="write-comment h3" name="" id="writeComment" cols="30" rows="10"
+                    placeholder="写下您想说的话..." fixed maxlength="500"></textarea>
+                <button class="btn-cancel btn-big btn-comment" form-type="submit">发布</button>
+            </form>
+        </view>
+    </view>
 </view>
 
 <template name="commentItem">

@@ -7,7 +7,7 @@
         <text class="motto">我们结婚啦！</text>
     </view>
     <view class="content">
-        <image class="img1" src="../../asset/img/1.jpg"></image>
+        <!-- <image class="img1" src="../../asset/img/1.jpg"></image> -->
     </view>
 
     <view class="operation">

@@ -3,39 +3,138 @@
     background-color: #ffffff;
 }
 
-.comment{
+.comment {
     display: flex;
     border-top: 1rpx solid #f5f5f5;
     padding: 30rpx;
 }
 
-.comment:first-child{
+.comment:first-child {
     border-top: 1rpx solid #f5f5f5;
 }
 
-.user-img{
+.user-img {
     width: 100rpx;
     height: 100rpx;
     border-radius: 50%;
     border: 1rpx solid #f5f5f5;
     margin-right: 24rpx;
 }
-.comment-info{
+
+.comment-info {
     flex: 1 1;
 }
 
-.comment-user{
+.comment-user {
     display: flex;
     justify-content: space-between;
     padding-bottom: 10rpx;
 }
 
-.none-tip{
+.none-tip {
     text-align: center;
     color: #999999;
     margin-top: 45%;
 }
 
-.end-line{
+.end-line {
     border-top: 1rpx solid #f5f5f5;
+}
+
+/* 按钮区域 */
+.operation {
+    position: fixed;
+    bottom: 60rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100rpx;
+}
+
+.operation .circle-btn {
+    display: block;
+    width: 100rpx;
+    height: 100rpx;
+    padding: 20rpx;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: -1rpx 6rpx 10rpx rgba(0, 0, 0, 0.2);
+}
+
+.iconfont {
+    font-size: 60rpx;
+}
+
+/* 评价区域 */
+.comment-func {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.write {
+    position: absolute;
+    top: 300rpx;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+}
+
+.close-write{
+    position: absolute;
+    right: 10rpx;
+    top: 10rpx;
+    width: 60rpx;
+    height: 60rpx;
+    z-index: 99;
+}
+
+.close-write .iconfont{
+    font-size: 40rpx;
+    color: #999999;
+}
+
+.write-comment{
+    width: 670rpx;
+    height: 500rpx;
+    border: none;
+    margin: 60rpx 40rpx 60rpx 40rpx;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+}
+
+.btn-comment{
+    position: absolute;
+    left: 30rpx;
+    bottom: 30rpx;
+    margin: 0 !important;
+    color: #222222;
+    padding: 0;
+    font-weight: 400;
+    width: 690rpx !important;
+}
+
+.show{
+    display: block;
 }

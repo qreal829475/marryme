@@ -109,6 +109,18 @@ image {
 
 /* 定义基础按钮 */
 
+.btn {
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #f44e4b;
+    border: 1rpx solid #f44e4b;
+    border-radius: 30rpx;
+}
+
 .btn-huge {
     width: 750rpx;
     height: 88rpx;
@@ -142,18 +154,6 @@ image {
     background-color: #f44e4b;
     /* border: 1rpx solid #f44e4b; */
     border-radius: 44rpx;
-}
-
-.btn {
-    width: 180rpx;
-    height: 60rpx;
-    line-height: 60rpx;
-    font-size: 30rpx;
-    text-align: center;
-    color: #fff;
-    background-color: #f44e4b;
-    border: 1rpx solid #f44e4b;
-    border-radius: 30rpx;
 }
 
 .btn-small {
