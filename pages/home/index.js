@@ -10,6 +10,7 @@ Page({
      */
     data: {
         htmlSnip: [],
+        showContent: false,
     },
 
     /**
@@ -23,23 +24,25 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        this.timer = setTimeout(() => {
-            let newDesc = '<div>';
-            for (let i = 0; i < 22; i++) {
-                newDesc = newDesc + `<img src="https://tang-1251307063.file.myqcloud.com/${i+1}.jpg" class="img" style="width:100%;height:auto;vertical-align:top;" />`;
-            }
-            newDesc = newDesc + '</div>';
-            this.setData({
-                htmlSnip: newDesc,
-            });
-        }, 6000);
+        let newDesc = '<div>';
+        for (let i = 0; i < 22; i++) {
+            newDesc = newDesc + `<img src="https://tang-1251307063.file.myqcloud.com/${i+1}.jpg" class="img" style="width:100%;height:auto;vertical-align:top;" />`;
+        }
+        newDesc = newDesc + '</div>';
+        this.setData({
+            htmlSnip: newDesc,
+        });
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.timer = setTimeout(() => {
+            this.setData({
+                showContent: true,
+            });
+        }, 6000);
     },
 
     /**
@@ -78,7 +81,7 @@ Page({
             title: '江先生与唐小姐的婚礼',
             path: '/pages/home/index',
             imageUrl: 'https://tang-1251307063.file.myqcloud.com/99.jpeg',
-          }
+        }
     },
 
     /**
@@ -102,7 +105,8 @@ Page({
             address: "重庆市江北区建新北路38号",
             fail: function (res) {
                 wx.showToast({
-                    title: '定位失败请重试!'
+                    title: '定位失败请重试!',
+                    icon: 'none'
                 })
             }
         })
