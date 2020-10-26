@@ -126,6 +126,7 @@ Page({
         app.sendGet(ApiUrls.GET_COMMENT_LIST, {
             page: this.currentPageIndex - 1,
             size: 20,
+            sort: 'commentTime,desc',
         }, {
             noToken: true,
             loading: false,
