@@ -76,6 +76,17 @@ Page({
     },
 
     /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+        return {
+            title: '江先生与唐小姐的婚礼',
+            path: '/pages/home/index',
+            imageUrl: 'https://tang-1251307063.file.myqcloud.com/99.jpeg',
+          }
+    },
+
+    /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
@@ -114,7 +125,7 @@ Page({
     getCommentList: function () {
         app.sendGet(ApiUrls.GET_COMMENT_LIST, {
             page: this.currentPageIndex - 1,
-            size: 10,
+            size: 20,
         }, {
             noToken: true,
             loading: false,

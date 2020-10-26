@@ -9,7 +9,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        htmlSnip: [],
     },
 
     /**
@@ -23,7 +23,16 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        this.timer = setTimeout(() => {
+            let newDesc = '<div>';
+            for (let i = 0; i < 22; i++) {
+                newDesc = newDesc + `<img src="https://tang-1251307063.file.myqcloud.com/${i+1}.jpg" class="img" style="width:100%;height:auto;vertical-align:top;" />`;
+            }
+            newDesc = newDesc + '</div>';
+            this.setData({
+                htmlSnip: newDesc,
+            });
+        }, 6000);
     },
 
     /**
@@ -65,7 +74,11 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            title: '江先生与唐小姐的婚礼',
+            path: '/pages/home/index',
+            imageUrl: 'https://tang-1251307063.file.myqcloud.com/99.jpeg',
+          }
     },
 
     /**
