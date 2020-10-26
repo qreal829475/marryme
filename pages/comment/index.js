@@ -79,7 +79,10 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        // 页面数据未加载完成时
+        if (this.hasAllListData != true) {
+          this.getCommentList();
+        }
     },
 
     // 获取用户信息
@@ -110,8 +113,8 @@ Page({
     // 获取评论列表
     getCommentList: function () {
         app.sendGet(ApiUrls.GET_COMMENT_LIST, {
-            pageNumber: this.currentPageIndex,
-            pageSize: 10,
+            page: this.currentPageIndex - 1,
+            size: 10,
         }, {
             noToken: true,
             loading: false,
