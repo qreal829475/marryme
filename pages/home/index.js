@@ -25,9 +25,9 @@ Page({
      */
     onReady: function () {
         let newDesc = '<div>';
-        for (let i = 0; i < 22; i++) {
-            newDesc = newDesc + `<img src="https://tang-1251307063.file.myqcloud.com/${i+1}.jpg" class="img" style="width:100%;height:auto;vertical-align:top;" />`;
-        }
+        // for (let i = 0; i < 22; i++) {
+            newDesc = newDesc + `<img src="https://tang-1251307063.file.myqcloud.com/1.jpg" class="img" style="width:100%;height:auto;vertical-align:top;" />`;
+        // }
         newDesc = newDesc + '</div>';
         this.setData({
             htmlSnip: newDesc,
@@ -118,6 +118,13 @@ Page({
     goComment: function () {
         wx.navigateTo({
             url: '../comment/index'
+        });
+    },
+    
+    // 跳转评论
+    goPicture: function () {
+        wx.navigateTo({
+            url: '../picture/index'
         });
     },
 })

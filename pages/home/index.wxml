@@ -8,14 +8,26 @@
     </view>
     <view class="content {{showContent ? '' : 'hidden'}}">
         <rich-text nodes="{{htmlSnip}}"></rich-text>
+        <view class="operation">
+            <view class="button">
+                <view class="circle-btn btn1" bindtap="goPicture">
+                    <icon class="iconfont icon-picture2" />
+                </view>
+                <view class="h5">更多</view>
+            </view>
+            <view class="button">
+                <view class="circle-btn btn3" bindtap="clickNav">
+                    <icon class="iconfont icon-Location" />
+                </view>
+                <view class="h5">导航</view>
+            </view>
+            <view class="button">
+                <view class="circle-btn btn2" bindtap="goComment">
+                    <icon class="iconfont icon-comment" />
+                </view>
+                <view class="h5">评论</view>
+            </view>
+        </view>
     </view>
 
-    <view class="operation">
-        <view class="circle-btn" bindtap="goComment">
-            <icon class="iconfont icon-comment" />
-        </view>
-        <view class="circle-btn" bindtap="clickNav">
-            <icon class="iconfont icon-navigation" />
-        </view>
-    </view>
 </view>

@@ -1,0 +1,4 @@
+<!--pages/picture/index.wxml-->
+<view class="container">
+    <rich-text nodes="{{htmlSnip}}"></rich-text>
+</view>
