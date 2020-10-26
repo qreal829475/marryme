@@ -8,7 +8,7 @@
         <view class='h6 none-tip'>暂时还没有评论哦~</view>
     </block>
     <view wx:elif="{{commentCount > 0}}">
-        <block wx:for="{{commentList}}" wx:key='{{item.goodsId}}-act'>
+        <block wx:for="{{commentList}}" wx:key='{{item.id}}-act'>
             <template is='commentItem' data='{{...item}}' />
         </block>
     </view>
@@ -20,20 +20,23 @@
     </block>
 
     <view class="operation">
-        <view class="circle-btn" bindtap="showWrite">
+        <view wx:if="{{hasUserInfo}}" class="circle-btn" bindtap="showWrite">
             <icon class="iconfont icon-fabiao" />
         </view>
+        <button wx:else class="circle-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfoBtn">
+            <icon class="iconfont icon-fabiao" />
+        </button>
     </view>
 
     <view class="comment-func {{showWrite ? 'show': ''}}">
         <view class="bg"></view>
         <view class="write">
-            <view class="close-write"  bindtap="closeWrite" >
+            <view class="close-write" bindtap="closeWrite">
                 <icon class="iconfont icon-Close" />
             </view>
-            <form bindsubmit="submit">
-                <textarea class="write-comment h3" name="" id="writeComment" cols="30" rows="10"
-                    placeholder="写下您想说的话..." fixed maxlength="500"></textarea>
+            <form bindsubmit="pushComment">
+                <textarea class="write-comment h3" name="textarea" id="writeComment" cols="30" rows="10"
+                    placeholder="写下您想说的话..." fixed maxlength="500" value="{{textareaValue}}"></textarea>
                 <button class="btn-cancel btn-big btn-comment" form-type="submit">发布</button>
             </form>
         </view>
@@ -42,13 +45,13 @@
 
 <template name="commentItem">
     <view class="comment">
-        <image class="user-img" src="{{item.avatarUrl}}"></image>
+        <image class="user-img" src="{{avatarUrl}}"></image>
         <view class="comment-info">
             <view class="comment-user">
-                <view class="h5 word-1">{{item.nickname}}</view>
-                <view class="h6 word-3">{{item.commentTime}}</view>
+                <view class="h5 word-1">{{nickname}}</view>
+                <view class="h6 word-3">{{commentTime}}</view>
             </view>
-            <view class="comment-content h4">{{item.content}}</view>
+            <view class="comment-content h4">{{content}}</view>
         </view>
     </view>
 </template>

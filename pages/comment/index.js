@@ -15,6 +15,9 @@ Page({
         commentCount: -1, // 商品总数 接口未获取到值的时候，默认为-1
         hasAllListData: false, //页面数据是都是否已经加载完毕(该状态仅用于控制页面展示)
         showWrite: false, //控制页面评论区域展示
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        hasUserInfo: false, //是否已经获取到用户信息
+        textareaValue: '', 
     },
     hasAllListData: false, //页面数据是都是否已经加载完毕（该状态也用户页面内判断标志位）
     currentPageIndex: 1, // 当前商品列表的页数
@@ -39,6 +42,16 @@ Page({
     onShow: function () {
         this.currentPageIndex = 1; // 重置活动列表信息的页码
         this.getCommentList();
+        if (app.globalData.userInfo.nickname) {
+            // 当前有用户信息缓存
+            this.userInfo = app.globalData.userInfo;
+            this.setData({
+                hasUserInfo: true,
+            });
+        } else {
+            // 没有用户信息的时候获取用户信息
+            this.getUserInfo();
+        }
     },
 
     /**
@@ -69,6 +82,31 @@ Page({
 
     },
 
+    // 获取用户信息
+    getUserInfo: function () {
+        wx.getSetting({
+            success: res => {
+                if (res.authSetting['scope.userInfo']) {
+                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+                    wx.getUserInfo({
+                        success: res => {
+                            // 可以将 res 发送给后台解码出 unionId
+                            app.globalData.userInfo = res.userInfo;
+                            this.userInfo = app.globalData.userInfo;
+                            wx.setStorageSync('nickname', this.userInfo.nickName);
+                            wx.setStorageSync('avatarUrl', this.userInfo.avatarUrl);
+
+                            // 更改页面上的展示按钮
+                            this.setData({
+                                hasUserInfo: true,
+                            });
+                        }
+                    })
+                }
+            }
+        })
+    },
+
     // 获取评论列表
     getCommentList: function () {
         app.sendGet(ApiUrls.GET_COMMENT_LIST, {
@@ -84,7 +122,7 @@ Page({
                 // 判断当前页面是否为第一页，如果不是重新请求数据，获取第一页的数据重新展示
                 if (this.currentPageIndex == 1) {
                     // 当前数据为第一页，将数据放入对应的地方
-                    if (json.totalCount == json.content.length) {
+                    if (json.totalElements == json.content.length) {
                         this.hasAllListData = true;
                         this.setData({
                             hasAllListData: true,
@@ -100,7 +138,7 @@ Page({
                     // 重置页码
                     this.currentPageIndex = 1;
                     this.hasAllListData = false;
-                    this.getGoodsList();
+                    this.getCommentList();
                 }
             } else if (this.data.commentCount == json.totalElements) {
                 // 接口获取的total与现有相等时
@@ -151,6 +189,42 @@ Page({
     closeWrite: function () {
         this.setData({
             showWrite: false,
+        });
+    },
+
+    // 获取用户信息（授权按钮）
+    getUserInfoBtn: function (e) {
+        let info = JSON.parse(e.detail.rawData);
+        app.globalData.userInfo = info;
+        this.userInfo = info;
+        wx.setStorageSync('nickname', this.userInfo.nickName);
+        wx.setStorageSync('avatarUrl', this.userInfo.avatarUrl);
+
+        // 更改页面上的展示按钮
+        this.setData({
+            hasUserInfo: true,
+        });
+    },
+
+    // 发表评论
+    pushComment: function (e) {
+        let content = e.detail.value.textarea;
+        app.sendPost(ApiUrls.POST_PUSH_COMMENT, {
+            avatarUrl: this.userInfo.avatarUrl,
+            content: content,
+            nickname: this.userInfo.nickName,
+        }, {
+            loading: true,
+            contentType: 'application/json'
+        }).then(res => {
+            console.log(res);
+            this.currentPageIndex = 1; // 重置活动列表信息的页码
+            this.getCommentList();
+
+            this.setData({
+                showWrite: false,
+                textareaValue: '',
+            });
         });
     },
 })

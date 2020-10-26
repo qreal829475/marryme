@@ -89,7 +89,7 @@ const agentObj = {
         duration: 3000
       })
       return undefined;
-    } else if (response.statusCode == 200) {
+    } else if (response.statusCode == 200 || response.statusCode == 201) {
       const res = response.data;
       // const oriUrl = par.oriUrl;
       // const params = par.params;

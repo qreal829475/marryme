@@ -1,9 +1,9 @@
 <!--pages/home/index.wxml-->
 <view class="container">
-    <view class="step1">
+    <view class="step1 h2">
         <text class="motto">Hello World!</text>
     </view>
-    <view class="step2">
+    <view class="step2 h2">
         <text class="motto">我们结婚啦！</text>
     </view>
     <view class="content">
