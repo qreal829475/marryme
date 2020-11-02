@@ -42,7 +42,7 @@ Page({
             this.setData({
                 showContent: true,
             });
-        }, 6000);
+        }, 5500);
     },
 
     /**

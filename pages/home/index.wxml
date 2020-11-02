@@ -6,7 +6,7 @@
     <view class="step2 h2">
         <text class="motto">我们结婚啦！</text>
     </view>
-    <view class="content {{showContent ? '' : 'hidden'}}">
+    <view class="content" style="opacity:{{showContent ? '1' : '0'}}">
         <rich-text nodes="{{htmlSnip}}"></rich-text>
         <view class="operation">
             <view class="button">
