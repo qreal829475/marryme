@@ -13,7 +13,7 @@
                 <view class="circle-btn btn1" bindtap="goPicture">
                     <icon class="iconfont icon-picture2" />
                 </view>
-                <view class="h5">更多</view>
+                <view class="h5">相册</view>
             </view>
             <view class="button">
                 <view class="circle-btn btn3" bindtap="clickNav">
