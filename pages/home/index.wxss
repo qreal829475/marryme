@@ -16,12 +16,12 @@
 }
 
 .step1 {
-    animation: myStep1 3s;
+    animation: myStep1 2s;
     animation-iteration-count: 1;
 }
 
 .step2 {
-    animation: myStep2 2.5s 3s;
+    animation: myStep2 2s 2.2s;
     animation-iteration-count: 1;
 }
 
