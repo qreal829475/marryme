@@ -82,9 +82,12 @@
 }
 
 /* 页面排版 */
-.img{
+.content {
     width: 750rpx;
-    height: auto;
+}
+
+.bk-img {
+    width: 750rpx;
 }
 
 
@@ -93,23 +96,23 @@
     position: fixed;
     bottom: 70rpx;
     /* right: 20rpx; */
-    width: 490rpx;
+    width: 520rpx;
     margin-left: 50%;
     transform: translateX(-50%);
 }
 
-.button{
+.button {
     display: inline-block;
-    width: 160rpx;
+    width: 170rpx;
     text-align: center;
     /* border-right:1rpx solid #f5f5f5; */
 }
 
 .operation .circle-btn {
     display: inline-block;
-    width: 100rpx;
-    height: 100rpx;
-    padding: 20rpx;
+    width: 110rpx;
+    height: 110rpx;
+    padding: 22rpx 20rpx 20rpx 20rpx;
     /* margin-bottom: 20rpx; */
     border-radius: 50%;
     /* border: 1rpx solid #f7f7f7; */
@@ -118,10 +121,39 @@
     background-color: #ffffff;
 }
 
-.operation .circle-btn:first-child{
+.operation .circle-btn:first-child {
     /* margin-bottom: 30rpx; */
 }
 
-.iconfont {
+/* .iconfont {
     font-size: 60rpx;
+} */
+
+.title {
+    position: absolute;
+    width: 459rpx;
+    height: 100rpx;
+    top: 7%;
+    left: 145rpx;
+}
+
+.info{
+    position: absolute;
+    width: 76%;
+    height: 60%;
+    left: 12%;
+    top: 23%;
+}
+
+.pic{
+    position: absolute;
+    width: 500rpx;
+    height: 334rpx;
+    left: 125rpx;
+    top: 26%;
+}
+
+.icon-img {
+    width: 68rpx;
+    height: 108rpx;
 }

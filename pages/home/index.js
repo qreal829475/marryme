@@ -11,13 +11,22 @@ Page({
     data: {
         htmlSnip: [],
         showContent: false,
+        contentHeight: 750,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        let me = this;
+        wx.getSystemInfo({
+            success: (result) => {
+                console.log(result);
+                me.setData({
+                    contentHeight: result.windowHeight * 750 / result.windowWidth,
+                });
+            },
+        })
     },
 
     /**
@@ -26,7 +35,7 @@ Page({
     onReady: function () {
         let newDesc = '<div>';
         // for (let i = 0; i < 22; i++) {
-            newDesc = newDesc + `<img src="https://tang-1251307063.file.myqcloud.com/1.jpg" class="img" style="width:100%;height:auto;vertical-align:top;" />`;
+        // newDesc = newDesc + `<img src="https://tang-1251307063.file.myqcloud.com/1.jpg" class="img" style="width:100%;height:auto;vertical-align:top;" />`;
         // }
         newDesc = newDesc + '</div>';
         this.setData({
@@ -120,7 +129,7 @@ Page({
             url: '../comment/index'
         });
     },
-    
+
     // 跳转评论
     goPicture: function () {
         wx.navigateTo({
